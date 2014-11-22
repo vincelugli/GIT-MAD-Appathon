@@ -33,6 +33,10 @@
             android:name=".LynxActivity"
             android:label="@string/title_activity_lynx" >
         </activity>
+        <activity
+            android:name=".LinkedLoginActivity"
+            android:label="@string/title_activity_linked_login" >
+        </activity>
     </application>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->

@@ -15,9 +15,13 @@
     <string name="swipe">Swipe Left to Link Accounts</string>
     <string name="title_activity_lynx">LynxActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Register</string>
+    <string name="title_section2">Facebook</string>
+    <string name="title_section3">LinkedIn</string>
+    <string name="title_section4">Google</string>
+    <string name="title_section5">Twitter</string>
+    <string name="title_section6">GO!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_linked_login">LinkedLoginActivity</string>
 
 </resources>
