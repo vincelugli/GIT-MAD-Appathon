@@ -222,7 +222,7 @@ public class RegisterActivity extends Activity {
             showProgress(false);
 
             if (success) {
-                Intent lynxIntent = new Intent (getApplicationContext(), LynxActivity.class);
+                Intent lynxIntent = new Intent (getApplicationContext(), LinkedLoginActivity.class);
                 startActivity(lynxIntent);
                 finish();
             } else {
