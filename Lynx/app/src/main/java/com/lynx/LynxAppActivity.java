@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -100,13 +101,15 @@ public class LynxAppActivity extends Activity {
             View v =  inflater.inflate(R.layout.fragment_lynx_app, container, false);
 
             ((TextView) v.findViewById(R.id.userText)).setText(getArguments().getString("text"));
+            ((Button) v.findViewById(R.id.viewProfileButton)).setTag(getArguments().getString("text"));
             return v;
         }
     }
 
     public void goToUserInfo(View view) {
         Intent userInfoIntent = new Intent(this, UserInfoActivity.class);
-        userInfoIntent.putExtra("username", mUsername);
+        userInfoIntent.putExtra("myUsername", mUsername);
+        userInfoIntent.putExtra("username", ((Button) view).getTag().toString());
 
         startActivity(userInfoIntent);
     }

@@ -40,6 +40,10 @@ public class UserInfoActivity extends Activity implements OnTaskComplete {
     private Intent mIntent;
 
     private GetUserDataTask mGetUserDataTask = null;
+    private MakeFacebookRequestTask mMakeFacebookRequestTask = null;
+    private MakeLinkedInRequestTask mMakeLinkedInRequestTask = null;
+    private MakeGoogleRequestTask mMakeGoogleRequestTask = null;
+    private MakeTwitterRequestTask mMakeTwitterRequestTask = null;
 
     private JSONParser jsonParser = new JSONParser();
 
@@ -199,5 +203,253 @@ public class UserInfoActivity extends Activity implements OnTaskComplete {
         mLinkedInView.setEnabled(linkedin);
         mGoogleView.setEnabled(google);
         mTwitterView.setEnabled(twitter);
+    }
+
+    public void makeFacebookRequest (View view) {
+        if (mMakeFacebookRequestTask != null) {
+            return;
+        }
+
+        showProgress(true);
+        mMakeFacebookRequestTask = new MakeFacebookRequestTask(mIntent.getStringExtra("myUsername"), mIntent.getStringExtra("username"));
+        mMakeFacebookRequestTask.execute((Void) null);
+    }
+
+    public class MakeFacebookRequestTask extends AsyncTask<Void, Void, Boolean> {
+
+        private final String mUsername;
+        private final String mMyUsername;
+        private JSONObject mData;
+
+        MakeFacebookRequestTask (String myUsername, String username) {
+            mMyUsername = myUsername;
+            mUsername = username;
+            mData = null;
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+
+            String url = "http://143.215.109.184/t4j/submit_request.php";
+
+            List<NameValuePair> requestParams = new ArrayList<NameValuePair>();
+            requestParams.add(new BasicNameValuePair("reqFrom", mMyUsername));
+            requestParams.add(new BasicNameValuePair("reqTo", mUsername));
+            requestParams.add(new BasicNameValuePair("fb", "1"));
+
+            JSONObject json = jsonParser.makeHttpRequest(url, "POST", requestParams);
+
+            try {
+                int success = json.getInt("success");
+                if (success == 1) {
+                    JSONArray userData = json.getJSONArray("user");
+                    mData = userData.getJSONObject(0);
+                }
+                return success == 1;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            mGetUserDataTask = null;
+            showProgress(false);
+
+            finish();
+        }
+
+        @Override
+        protected void onCancelled() {
+            mGetUserDataTask = null;
+            showProgress(false);
+        }
+    }
+
+    public void makeLinkedInRequest (View view) {
+        if (mMakeLinkedInRequestTask != null) {
+            return;
+        }
+
+        showProgress(true);
+        mMakeLinkedInRequestTask = new MakeLinkedInRequestTask(mIntent.getStringExtra("myUsername"), mIntent.getStringExtra("username"));
+        mMakeLinkedInRequestTask.execute((Void) null);
+    }
+
+    public class MakeLinkedInRequestTask extends AsyncTask<Void, Void, Boolean> {
+
+        private final String mUsername;
+        private final String mMyUsername;
+        private JSONObject mData;
+
+        MakeLinkedInRequestTask (String myUsername, String username) {
+            mMyUsername = myUsername;
+            mUsername = username;
+            mData = null;
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+
+            String url = "http://143.215.109.184/t4j/submit_request.php";
+
+            List<NameValuePair> requestParams = new ArrayList<NameValuePair>();
+            requestParams.add(new BasicNameValuePair("reqFrom", mMyUsername));
+            requestParams.add(new BasicNameValuePair("reqTo", mUsername));
+            requestParams.add(new BasicNameValuePair("linkedin", "1"));
+
+            JSONObject json = jsonParser.makeHttpRequest(url, "POST", requestParams);
+
+            try {
+                int success = json.getInt("success");
+                if (success == 1) {
+                    JSONArray userData = json.getJSONArray("user");
+                    mData = userData.getJSONObject(0);
+                }
+                return success == 1;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            mGetUserDataTask = null;
+            showProgress(false);
+
+            finish();
+        }
+
+        @Override
+        protected void onCancelled() {
+            mGetUserDataTask = null;
+            showProgress(false);
+        }
+    }
+
+    public void makeGoogleRequest (View view) {
+        if (mMakeGoogleRequestTask != null) {
+            return;
+        }
+
+        showProgress(true);
+        mMakeGoogleRequestTask = new MakeGoogleRequestTask(mIntent.getStringExtra("myUsername"), mIntent.getStringExtra("username"));
+        mMakeGoogleRequestTask.execute((Void) null);
+    }
+
+    public class MakeGoogleRequestTask extends AsyncTask<Void, Void, Boolean> {
+
+        private final String mUsername;
+        private final String mMyUsername;
+        private JSONObject mData;
+
+        MakeGoogleRequestTask (String myUsername, String username) {
+            mMyUsername = myUsername;
+            mUsername = username;
+            mData = null;
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+
+            String url = "http://143.215.109.184/t4j/submit_request.php";
+
+            List<NameValuePair> requestParams = new ArrayList<NameValuePair>();
+            requestParams.add(new BasicNameValuePair("reqFrom", mMyUsername));
+            requestParams.add(new BasicNameValuePair("reqTo", mUsername));
+            requestParams.add(new BasicNameValuePair("google", "1"));
+
+            JSONObject json = jsonParser.makeHttpRequest(url, "POST", requestParams);
+
+            try {
+                int success = json.getInt("success");
+                if (success == 1) {
+                    JSONArray userData = json.getJSONArray("user");
+                    mData = userData.getJSONObject(0);
+                }
+                return success == 1;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            mGetUserDataTask = null;
+            showProgress(false);
+
+            finish();
+        }
+
+        @Override
+        protected void onCancelled() {
+            mGetUserDataTask = null;
+            showProgress(false);
+        }
+    }
+
+    public void makeTwitterRequest (View view) {
+        if (mMakeTwitterRequestTask != null) {
+            return;
+        }
+
+        showProgress(true);
+        mMakeTwitterRequestTask = new MakeTwitterRequestTask(mIntent.getStringExtra("myUsername"), mIntent.getStringExtra("username"));
+        mMakeTwitterRequestTask.execute((Void) null);
+    }
+
+    public class MakeTwitterRequestTask extends AsyncTask<Void, Void, Boolean> {
+
+        private final String mUsername;
+        private final String mMyUsername;
+        private JSONObject mData;
+
+        MakeTwitterRequestTask (String myUsername, String username) {
+            mMyUsername = myUsername;
+            mUsername = username;
+            mData = null;
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+
+            String url = "http://143.215.109.184/t4j/submit_request.php";
+
+            List<NameValuePair> requestParams = new ArrayList<NameValuePair>();
+            requestParams.add(new BasicNameValuePair("reqFrom", mMyUsername));
+            requestParams.add(new BasicNameValuePair("reqTo", mUsername));
+            requestParams.add(new BasicNameValuePair("twitter", "1"));
+
+            JSONObject json = jsonParser.makeHttpRequest(url, "POST", requestParams);
+
+            try {
+                int success = json.getInt("success");
+                if (success == 1) {
+                    JSONArray userData = json.getJSONArray("user");
+                    mData = userData.getJSONObject(0);
+                }
+                return success == 1;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            mGetUserDataTask = null;
+            showProgress(false);
+
+            finish();
+        }
+
+        @Override
+        protected void onCancelled() {
+            mGetUserDataTask = null;
+            showProgress(false);
+        }
     }
 }
