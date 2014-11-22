@@ -299,6 +299,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
 
     public void loginRegister(View view) {
         Intent registerIntent = new Intent (this, RegisterActivity.class);
+        if (!TextUtils.isEmpty(mEmailView.getText().toString())){
+            registerIntent.putExtra("username", mEmailView.getText().toString());
+        }
+        if (!TextUtils.isEmpty(mPasswordView.getText().toString())){
+            registerIntent.putExtra("password", mPasswordView.getText().toString());
+        }
 
         startActivity(registerIntent);
     }

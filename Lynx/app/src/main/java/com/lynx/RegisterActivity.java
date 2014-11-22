@@ -49,6 +49,14 @@ public class RegisterActivity extends Activity {
 
         mRegisterFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
+
+        Intent thisIntent = getIntent();
+        if (thisIntent.getStringExtra("username") != null) {
+            mUsernameView.setText(thisIntent.getStringExtra("username"));
+        }
+        if (thisIntent.getStringExtra("password") != null) {
+            mPasswordView.setText(thisIntent.getStringExtra("password"));
+        }
     }
 
     public void attemptRegister(View view) {
