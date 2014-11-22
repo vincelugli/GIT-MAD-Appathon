@@ -63,7 +63,14 @@ public class LynxAppActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_my_requests) {
+            Intent myRequestIntent = new Intent(this, MyRequestsActivity.class);
+            startActivity(myRequestIntent);
+            return true;
+        }
+        else if (id == R.id.action_my_profile) {
+            Intent myProfileIntent = new Intent(this, MyProfileActivity.class);
+            startActivity(myProfileIntent );
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -34,5 +34,8 @@
     <string name="linkedin">LinkedIn</string>
     <string name="google">Google</string>
     <string name="twitter">Twitter</string>
+    <string name="title_activity_my_requests">My Requests</string>
+    <string name="action_my_profile">My Profile</string>
+    <string name="title_activity_my_profile">My Profile</string>
 
 </resources>

@@ -53,6 +53,22 @@
             android:name=".LynxAppActivity"
             android:label="@string/title_activity_lynx" >
         </activity>
+        <activity
+            android:name=".MyRequestsActivity"
+            android:label="@string/title_activity_my_requests"
+            android:parentActivityName=".LynxAppActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lynx.LynxAppActivity" />
+        </activity>
+        <activity
+            android:name=".MyProfileActivity"
+            android:label="@string/title_activity_my_profile"
+            android:parentActivityName=".LynxAppActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lynx.LynxAppActivity" />
+        </activity>
     </application>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
