@@ -9,10 +9,11 @@
 $response = array();
  
 // check for required fields
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['displayName'])) {
  
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $displayName = $_POST['displayName'];
  
     // include db connect class
     require_once __DIR__ . '/db_connect.php';
@@ -21,7 +22,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $db = new DB_CONNECT();
  
     // mysql inserting a new row
-    $result = mysql_query("INSERT INTO users(username, password) VALUES('$username', '$password')");
+    $result = mysql_query("INSERT INTO users(username, displayName, password) VALUES('$username', '$displayName', '$password')");
  
     // check if row inserted or not
     if ($result) {
