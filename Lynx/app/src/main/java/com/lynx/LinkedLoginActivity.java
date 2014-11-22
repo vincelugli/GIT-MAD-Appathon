@@ -33,6 +33,8 @@ public class LinkedLoginActivity extends Activity implements ActionBar.TabListen
      */
     ViewPager mViewPager;
 
+    private String mUsername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +89,9 @@ public class LinkedLoginActivity extends Activity implements ActionBar.TabListen
                         .setText("Go")
                         .setTabListener(this)
         );
+
+        Intent thisIntent = getIntent();
+        mUsername = thisIntent.getStringExtra("username");
     }
 
 
@@ -178,6 +183,7 @@ public class LinkedLoginActivity extends Activity implements ActionBar.TabListen
 
     public void goToLynx(View view) {
         Intent lynxIntent = new Intent(this, LynxAppActivity.class);
+        lynxIntent.putExtra("username", mUsername);
 
         startActivity(lynxIntent);
     }

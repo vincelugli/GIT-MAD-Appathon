@@ -140,7 +140,7 @@ public class RegisterActivity extends Activity {
     }
 
     /**
-     * Shows the progress UI and hides the login form.
+     * Shows the progress UI and hides the registration form.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     public void showProgress(final boolean show) {
@@ -210,7 +210,6 @@ public class RegisterActivity extends Activity {
         protected Boolean doInBackground(Void... params) {
 
             String url = "http://143.215.109.184/t4j/create_user.php";
-            System.out.println(url);
             List<NameValuePair> requestParams = new ArrayList<NameValuePair>();
             requestParams.add(new BasicNameValuePair("username", mUsername));
             requestParams.add(new BasicNameValuePair("password", mPassword));
@@ -234,6 +233,7 @@ public class RegisterActivity extends Activity {
 
             if (success) {
                 Intent linkedLoginIntent = new Intent (getApplicationContext(), LinkedLoginActivity.class);
+                linkedLoginIntent.putExtra("username", mUsername);
                 startActivity(linkedLoginIntent);
                 finish();
             } else {

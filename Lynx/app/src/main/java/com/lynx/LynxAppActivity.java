@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 public class LynxAppActivity extends Activity {
 
+    private String mUsername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +39,9 @@ public class LynxAppActivity extends Activity {
 
         Intent thisIntent = getIntent();
 
-        getFragmentManager().beginTransaction().add(layout.getId(), UserFragment.newInstance(
-                thisIntent.getStringExtra("username")), "user 1").commit();
+        mUsername = thisIntent.getStringExtra("username");
+
+        getFragmentManager().beginTransaction().add(layout.getId(), UserFragment.newInstance(mUsername), "user 1").commit();
         getFragmentManager().beginTransaction().add(layout.getId(), UserFragment.newInstance("USER 2"), "user 2").commit();
         getFragmentManager().beginTransaction().add(layout.getId(), UserFragment.newInstance("USER 3"), "user 3").commit();
         getFragmentManager().beginTransaction().add(layout.getId(), UserFragment.newInstance("USER 4"), "user 4").commit();
@@ -96,6 +99,7 @@ public class LynxAppActivity extends Activity {
 
     public void goToUserInfo(View view) {
         Intent userInfoIntent = new Intent(this, UserInfoActivity.class);
+        userInfoIntent.putExtra("username", mUsername);
 
         startActivity(userInfoIntent);
     }
