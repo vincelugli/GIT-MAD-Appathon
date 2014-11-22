@@ -174,21 +174,46 @@ public class RegisterActivity extends Activity {
         if (TextUtils.isEmpty(username)){
             mUsernameView.setError(getString(R.string.error_field_required));
         }
-        else if (!isUsernameValid(password)) {
+        else if (!isUsernameValid(username)) {
             mUsernameView.setError(getString(R.string.error_invalid_username));
             focusView = mUsernameView;
             cancel = true;
         }
 
         // Check for valid displayName
+        if (TextUtils.isEmpty(displayName)){
+            mDisplayNameView.setError(getString(R.string.error_field_required));
+        }
+        else if (!isUsernameValid(displayName)) {
+            mDisplayNameView.setError(getString(R.string.error_invalid_username));
+            focusView = mDisplayNameView;
+            cancel = true;
+        }
 
         // Check if password and passwordConfirm Match
+        if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError(getString(R.string.error_field_required));
+        }
+
+        if (TextUtils.isEmpty(passwordConfirm)) {
+            mPasswordConfirmView.setError(getString(R.string.error_field_required));
+        }
+        else if (!TextUtils.isEmpty(password) && !TextUtils.isEmpty(passwordConfirm)) {
+            if (TextUtils.equals(password, passwordConfirm)) {
+                mPasswordView.setError(getString(R.string.error_invalid_password));
+                focusView = mPasswordView;
+                cancel = true;
+            }
+        }
     }
 
     private boolean isUsernameValid(String username) {
         return username.length() < 16;
     }
 
+    private boolean isPasswordValid(String password) {
+        return password.length() < 24;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
