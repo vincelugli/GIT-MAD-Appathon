@@ -7,6 +7,13 @@
     <string name="action_register">Register</string>
     <string name="action_sign_in">Sign In</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_register">Register</string>
+    <string name="enter_username">Username</string>
+    <string name="enter_display_name">Display Name</string>
+    <string name="enter_password">Password</string>
+    <string name="enter_password_confirm">Confirm Password</string>
+    <string name="swipe">Swipe Left to Link Accounts</string>
+    <string name="title_activity_lynx">LynxActivity</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

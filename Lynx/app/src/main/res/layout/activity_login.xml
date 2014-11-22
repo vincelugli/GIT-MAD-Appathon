@@ -75,7 +75,8 @@
                         android:text="@string/action_register"
                         android:id="@+id/register_button_2"
                         android:layout_marginTop="16dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:onClick="loginRegister"/>
 
                 </LinearLayout>
 

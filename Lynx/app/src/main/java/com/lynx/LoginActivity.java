@@ -6,6 +6,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -265,6 +267,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
             JSONObject json = jsonParser.makeHttpRequest(url, "GET", requestParams);
 
             try {
+                Log.d("JSON", json.toString());
                 int success = json.getInt("success");
                 if (success == 1) {
                     return true;
@@ -284,6 +287,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
             showProgress(false);
 
             if (success) {
+                Intent lynxIntent = new Intent (getApplicationContext(), LynxActivity.class);
+                startActivity(lynxIntent);
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
@@ -296,6 +301,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    public void loginRegister(View view) {
+        Intent registerIntent = new Intent (this, RegisterActivity.class);
+
+        startActivity(registerIntent);
     }
 }
 
