@@ -72,6 +72,7 @@ public class RegisterActivity extends Activity {
         // Check for valid username
         if (TextUtils.isEmpty(username)){
             mUsernameView.setError(getString(R.string.error_field_required));
+            focusView = mUsernameView;
             cancel = true;
         }
         else if (!isUsernameValid(username)) {
@@ -83,6 +84,7 @@ public class RegisterActivity extends Activity {
         // Check for valid displayName
         if (TextUtils.isEmpty(displayName)){
             mDisplayNameView.setError(getString(R.string.error_field_required));
+            focusView = mDisplayNameView;
             cancel = true;
         }
         else if (!isUsernameValid(displayName)) {
@@ -94,6 +96,7 @@ public class RegisterActivity extends Activity {
         // Check if password and passwordConfirm Match
         if (TextUtils.isEmpty(password)) {
             mPasswordView.setError(getString(R.string.error_field_required));
+            focusView = mPasswordView;
             cancel = true;
         }
 
@@ -101,10 +104,10 @@ public class RegisterActivity extends Activity {
             mPasswordConfirmView.setError(getString(R.string.error_field_required));
             cancel = true;
         }
-        else if (!TextUtils.isEmpty(password) && !TextUtils.isEmpty(passwordConfirm)) {
+        else if (!TextUtils.isEmpty(password)) {
             if (!TextUtils.equals(password, passwordConfirm)) {
-                mPasswordView.setError(getString(R.string.error_not_matching_passwords));
-                focusView = mPasswordView;
+                mPasswordConfirmView.setError(getString(R.string.error_not_matching_passwords));
+                focusView = mPasswordConfirmView;
                 cancel = true;
             }
         }
@@ -222,8 +225,8 @@ public class RegisterActivity extends Activity {
             showProgress(false);
 
             if (success) {
-                Intent lynxIntent = new Intent (getApplicationContext(), LinkedLoginActivity.class);
-                startActivity(lynxIntent);
+                Intent linkedLoginIntent = new Intent (getApplicationContext(), LinkedLoginActivity.class);
+                startActivity(linkedLoginIntent);
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

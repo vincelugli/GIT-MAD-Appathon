@@ -279,7 +279,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
             showProgress(false);
 
             if (success) {
-                Intent lynxIntent = new Intent (getApplicationContext(), LynxActivity.class);
+                Intent lynxIntent = new Intent (getApplicationContext(), LynxAppActivity.class);
+                lynxIntent.putExtra("username", mUsername);
+
                 startActivity(lynxIntent);
                 finish();
             } else {

@@ -13,7 +13,6 @@
     <string name="enter_password">Password</string>
     <string name="enter_password_confirm">Confirm Password</string>
     <string name="swipe">Swipe Left to Link Accounts</string>
-    <string name="title_activity_lynx">LynxActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_section1">Register</string>
     <string name="title_section2">Facebook</string>
@@ -23,8 +22,11 @@
     <string name="title_section6">GO!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_linked_login">LinkedLoginActivity</string>
-
+    <string name="user">User</string>
+    <string name="view_profile">View Profile</string>
     <string name="facebook_app_id">870809469626549</string>
     <string name="title_facebook_login">LoginButton</string>
+    <string name="title_activity_user_info">UserInfoActivity</string>
+    <string name="title_activity_lynx">LYNX</string>
 
 </resources>
