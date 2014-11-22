@@ -37,5 +37,6 @@
     <string name="title_activity_my_requests">My Requests</string>
     <string name="action_my_profile">My Profile</string>
     <string name="title_activity_my_profile">My Profile</string>
+    <string name="make_request">Make Request</string>
 
 </resources>

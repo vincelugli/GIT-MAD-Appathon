@@ -30,7 +30,8 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:id="@+id/userLinearLayout">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,42 +42,106 @@
                 android:layout_weight="1"
                 android:textSize="50sp" />
 
-            <CheckedTextView
-                android:layout_width="fill_parent"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="@string/facebook"
-                android:id="@+id/facebookCheckedText"
+                android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                android:checked="true"
-                android:layout_marginTop="16dp" />
+                android:id="@+id/facebookLinearLayout">
 
-            <CheckedTextView
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:text="@string/linkedin"
-                android:id="@+id/linkedInCheckedText"
-                android:layout_weight="1"
-                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                android:checked="false" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/facebook"
+                    android:id="@+id/facebook_text"
+                    android:layout_marginTop="32dp"
+                    android:layout_weight="1" />
 
-            <CheckedTextView
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:text="@string/google"
-                android:id="@+id/googleCheckedText"
-                android:layout_weight="1"
-                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                android:checked="false" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/make_request"
+                    android:id="@+id/make_facebook_request"
+                    android:layout_marginTop="32dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
-            <CheckedTextView
-                android:layout_width="fill_parent"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="@string/twitter"
-                android:id="@+id/twitterCheckedText"
                 android:layout_weight="1"
-                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                android:checked="false" />
+                android:id="@+id/lninkedInLinearLayout">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/linkedin"
+                    android:id="@+id/linkedin_text"
+                    android:layout_weight="1"
+                    android:layout_marginTop="32dp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/make_request"
+                    android:id="@+id/make_linkedin_request"
+                    android:layout_weight="1"
+                    android:layout_marginTop="32dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/googleLinearLayout">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/google"
+                    android:id="@+id/google_text"
+                    android:layout_weight="1"
+                    android:layout_marginTop="32dp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/make_request"
+                    android:id="@+id/make_google_request"
+                    android:layout_weight="1"
+                    android:layout_marginTop="32dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/twitterLinearLayout">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/twitter"
+                    android:id="@+id/twitter_text"
+                    android:layout_weight="1"
+                    android:layout_marginTop="32dp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/make_request"
+                    android:id="@+id/make_twitter_request"
+                    android:layout_weight="1"
+                    android:layout_marginTop="32dp" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

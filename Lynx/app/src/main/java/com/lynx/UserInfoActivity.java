@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.TextView;
 
@@ -26,10 +27,10 @@ import java.util.List;
 
 public class UserInfoActivity extends Activity implements OnTaskComplete {
 
-    private CheckedTextView mFacebookView;
-    private CheckedTextView mGoogleView;
-    private CheckedTextView mLinkedInView;
-    private CheckedTextView mTwitterView;
+    private Button mFacebookView;
+    private Button mGoogleView;
+    private Button mLinkedInView;
+    private Button mTwitterView;
 
     private TextView mUsernameView;
 
@@ -50,10 +51,10 @@ public class UserInfoActivity extends Activity implements OnTaskComplete {
         mIntent = getIntent();
 
         mUsernameView = (TextView) findViewById(R.id.userInfoUsername);
-        mFacebookView = (CheckedTextView) findViewById(R.id.facebookCheckedText);
-        mLinkedInView = (CheckedTextView) findViewById(R.id.linkedInCheckedText);
-        mGoogleView = (CheckedTextView) findViewById(R.id.googleCheckedText);
-        mTwitterView = (CheckedTextView) findViewById(R.id.twitterCheckedText);
+        mFacebookView = (Button) findViewById(R.id.make_facebook_request);
+        mLinkedInView = (Button) findViewById(R.id.make_linkedin_request);
+        mGoogleView = (Button) findViewById(R.id.make_google_request);
+        mTwitterView = (Button) findViewById(R.id.make_twitter_request);
 
         mUserData = findViewById(R.id.userData);
         mProgressView = findViewById(R.id.user_data_progress);
@@ -120,9 +121,6 @@ public class UserInfoActivity extends Activity implements OnTaskComplete {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -197,9 +195,9 @@ public class UserInfoActivity extends Activity implements OnTaskComplete {
     @Override
     public void OnTaskCompleted(String displayName, boolean fb, boolean linkedin, boolean google, boolean twitter) {
         mUsernameView.setText(displayName);
-        mFacebookView.setChecked(fb);
-        mLinkedInView.setChecked(linkedin);
-        mGoogleView.setChecked(google);
-        mTwitterView.setChecked(twitter);
+        mFacebookView.setEnabled(fb);
+        mLinkedInView.setEnabled(linkedin);
+        mGoogleView.setEnabled(google);
+        mTwitterView.setEnabled(twitter);
     }
 }
