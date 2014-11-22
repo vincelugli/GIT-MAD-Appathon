@@ -3,25 +3,30 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lynx.LynxAppActivity"
+    android:gravity="center_horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.lynx.RequestsActivity"
     tools:ignore="MergeRootFrame">
 
-    <!-- Lynx progress -->
+    <!-- Requests progress -->
     <ProgressBar
-        android:id="@+id/lynx_progress"
+        android:id="@+id/requests_progress"
         style="?android:attr/progressBarStyleLarge"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:visibility="gone"/>
 
     <ScrollView
-        android:id="@+id/lynxScrollView"
+        android:id="@+id/requestsScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
         <LinearLayout
-            android:id="@+id/userLinearLayout"
+            android:id="@+id/requestsLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >

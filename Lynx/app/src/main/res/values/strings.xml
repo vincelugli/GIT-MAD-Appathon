@@ -38,5 +38,8 @@
     <string name="action_my_profile">My Profile</string>
     <string name="title_activity_my_profile">My Profile</string>
     <string name="make_request">Make Request</string>
+    <string name="title_activity_requests">RequestsActivity</string>
+    <string name="accept_request">Accept Request</string>
+    <string name="reject_request">Reject Request</string>
 
 </resources>

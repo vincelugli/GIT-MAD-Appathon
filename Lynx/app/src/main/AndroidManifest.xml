@@ -69,6 +69,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.lynx.LynxAppActivity" />
         </activity>
+        <activity
+            android:name=".RequestsActivity"
+            android:label="@string/title_activity_requests" >
+        </activity>
     </application>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
