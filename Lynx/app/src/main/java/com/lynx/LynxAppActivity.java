@@ -86,23 +86,26 @@ public class LynxAppActivity extends Activity implements OnTaskCompleteGetUsers{
         }
 
         showProgress(true);
-        mGetAllUsersTask = new GetAllUsersTask(this);
+        mGetAllUsersTask = new GetAllUsersTask(this, mUsername);
         mGetAllUsersTask.execute((Void) null);
     }
     public class GetAllUsersTask extends AsyncTask<Void, Void, Boolean> {
 
         List<String> mUsernames, mDisplayNames;
+        String mUsername;
 
-        GetAllUsersTask (OnTaskCompleteGetUsers listener) {
+        GetAllUsersTask (OnTaskCompleteGetUsers listener, String username) {
             mUsernames = new ArrayList<String>();
             mDisplayNames = new ArrayList<String>();
+            mUsername = username;
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
 
-            String url = "http://143.215.109.184/t4j/blank_space.php";
+            String url = "http://143.215.109.184/t4j/get_friends.php";
             List<NameValuePair> requestParams = new ArrayList<NameValuePair>();
+            requestParams.add(new BasicNameValuePair("username", mUsername));
 
             JSONObject json = jsonParser.makeHttpRequest(url, "GET", requestParams);
 
