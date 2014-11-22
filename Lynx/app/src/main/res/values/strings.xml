@@ -7,7 +7,7 @@
     <string name="action_register">Register</string>
     <string name="action_sign_in">Sign In</string>
     <string name="action_my_requests">My Requests</string>
-    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_register">Register</string>
     <string name="title_register">Register</string>
     <string name="enter_username">Username</string>
     <string name="enter_display_name">Display Name</string>
@@ -22,12 +22,12 @@
     <string name="title_section5">Twitter</string>
     <string name="title_section6">GO!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_linked_login">LinkedLoginActivity</string>
+    <string name="title_activity_linked_login">Linked Login</string>
     <string name="user">User</string>
     <string name="view_profile">View Profile</string>
     <string name="facebook_app_id">870809469626549</string>
     <string name="title_facebook_login">LoginButton</string>
-    <string name="title_activity_user_info">UserInfoActivity</string>
+    <string name="title_activity_user_info">User Info</string>
     <string name="title_activity_lynx">LYNX</string>
     <string name="user_info_username">Username</string>
     <string name="facebook">Facebook</string>
@@ -38,7 +38,7 @@
     <string name="action_my_profile">My Profile</string>
     <string name="title_activity_my_profile">My Profile</string>
     <string name="make_request">Make Request</string>
-    <string name="title_activity_requests">RequestsActivity</string>
+    <string name="title_activity_requests">My Requests</string>
     <string name="accept_request">Accept Request</string>
     <string name="reject_request">Reject Request</string>
 
