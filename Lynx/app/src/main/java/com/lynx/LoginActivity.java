@@ -16,7 +16,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,8 +38,6 @@ import org.json.*;
 
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
-
-    private String baseUrl = "http://143.215.109.184/t4j";
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -144,6 +141,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
             mAuthTask.execute((Void) null);
         }
     }
+
     private boolean isUsernameValid(String username) {
         return username.length() < 16;
     }
@@ -258,7 +256,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            String url = baseUrl + "/check_user_then_password.php";
+            String url = "http://143.215.109.184/t4j/check_user_then_password.php";
             System.out.println(url);
             List<NameValuePair> requestParams = new ArrayList<NameValuePair>();
             requestParams.add(new BasicNameValuePair("username", mUsername));
@@ -267,14 +265,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
             JSONObject json = jsonParser.makeHttpRequest(url, "GET", requestParams);
 
             try {
-                Log.d("JSON", json.toString());
                 int success = json.getInt("success");
-                if (success == 1) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
+                return success == 1;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return false;
