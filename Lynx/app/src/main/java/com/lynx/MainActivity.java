@@ -1,9 +1,11 @@
 package com.lynx;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends Activity {
@@ -32,5 +34,17 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void signIn(View view) {
+        Intent signInIntent = new Intent(this, LoginActivity.class);
+
+        startActivity(signInIntent);
+    }
+
+    public void register(View view) {
+        Intent registerIntent = new Intent(this, RegisterActivity.class);
+
+        startActivity(registerIntent);
     }
 }
